@@ -20,6 +20,6 @@
     "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true,
   },
-  "include": ["**/*.ts", "**/*.tsx", "backend"],
+  "include": ["**/*.ts", "**/*.tsx", "backend", "frontend"],
   "exclude": ["node_modules"]
 }
