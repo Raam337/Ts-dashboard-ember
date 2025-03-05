@@ -17,7 +17,8 @@
   "dependencies": {
     "@nestjs/cli": "^11.0.5",
     "@prisma/client": "^6.2.1",
-    "pnpm": "^10.5.2"
+    "pnpm": "^10.5.2",
+    "shared-types": "link:..\\shared-types"
   },
   "devDependencies": {
     "@types/node": "^22.12.0",

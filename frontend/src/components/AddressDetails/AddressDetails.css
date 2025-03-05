@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.action-button{
+  @apply size-[35px] rounded-lg flex justify-center items-center active:scale-95
+}
+
+.menu-bar{
+  @apply w-full p-2 border-amber-300 border-2 rounded-lg bg-amber-50 flex gap-3
+}
