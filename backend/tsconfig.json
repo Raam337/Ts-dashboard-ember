@@ -9,9 +9,14 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "noImplicitAny": false,
     "strictBindCallApply": false,
-
-  }
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules"]
+  
 }

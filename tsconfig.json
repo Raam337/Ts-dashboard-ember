@@ -4,7 +4,7 @@
     "lib": ["ES2023"],
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
+    "noEmit": false,
     "esModuleInterop": true,
     "module": "ES2022",
     "moduleResolution": "Node",
@@ -19,9 +19,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
   },
   "include": ["**/*.ts", "**/*.tsx", "backend"],
   "exclude": ["node_modules"]
