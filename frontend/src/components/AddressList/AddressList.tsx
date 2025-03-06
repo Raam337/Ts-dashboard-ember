@@ -1,18 +1,15 @@
-import api from "../../services/api";
-import { Address } from "shared-types";
-import { useQuery } from "@tanstack/react-query";
-import "./AddressList.css";
-import { useContext } from "react";
-import AppContext from "../../hooks/context";
+import { fetchAddresses } from "@/services/api";
+import AppContext from "@/hooks/context";
 
-const fetchAddresses = async () => {
-  const response = await api.get("/address");
-  return response.data;
-};
+import { useContext } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { Address } from "shared-types";
+
+import "./AddressList.css";
 
 export default function AddressList() {
   const { isLoading, error, data } = useQuery({
-    queryKey: ["addresses"],
+    queryKey: ["addressList"],
     queryFn: fetchAddresses,
   });
 
@@ -22,14 +19,14 @@ export default function AddressList() {
     setActiveAddress(id)
   }
 
-  // Loading state
+  // Loading
   if (isLoading) return <div>Loading...</div>;
 
-  // Error state
+  // Error
   if (error instanceof Error)
     return <div>An error occurred: {error.message}</div>;
 
-  // Data state
+  // Data
   return (
     <ul className="flex flex-col gap-2 p-2">
       {data.map((address: Address) => (

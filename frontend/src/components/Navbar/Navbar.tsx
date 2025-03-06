@@ -1,4 +1,3 @@
-
 export default function Navbar() {
   return (
     <header className="w-full h-[60px] bg-amber-500 flex items-center">

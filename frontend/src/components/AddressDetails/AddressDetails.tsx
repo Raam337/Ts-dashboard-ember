@@ -1,8 +1,11 @@
+import AppContext from "@/hooks/context";
+import { deleteAddress, fetchAddress } from "@/services/api";
+
 import { useContext, useEffect, useState } from "react";
-import { Address } from "shared-types";
-import api from "../../services/api";
-import AppContext from "../../hooks/context";
 import { MdDeleteForever, MdOutlineClose, MdOutlineEmail } from "react-icons/md";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Address } from "shared-types";
+
 import "./AddressDetails.css"
 
 const labelData = {
@@ -18,14 +21,25 @@ export default function AddressDetails() {
 
   useEffect(() => {
     if (activeAddress) {
-      api
-        .get(`/address/${activeAddress}`)
-        .then((res) => setAddressData(res.data));
+      fetchAddress(activeAddress)
+      .then((res) => setAddressData(res));
     }
   }, [activeAddress]);
 
+  const queryClient = useQueryClient();
+  const mutation = useMutation({ 
+    mutationFn: (id: number) => deleteAddress(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["addressList"]});
+      setActiveAddress(null)
+      setAddressData(null)
+    }
+  });
+
+  // No selection
   if(!addressData || !activeAddress) return "Select entry"
 
+  // Selection
   return (
     <>
       <menu className="menu-bar">
@@ -38,7 +52,9 @@ export default function AddressDetails() {
 
         <button 
           className="action-button bg-red-600"
-          onClick={()=>{}}
+          onClick={()=>{
+            mutation.mutate(activeAddress)
+          }}
         >
           <MdDeleteForever color="white" size="25px"/>
         </button>
@@ -49,7 +65,6 @@ export default function AddressDetails() {
         >
           <MdOutlineClose color="white" size="25px"/>
         </button>
-
       </menu>
 
       <section>

@@ -1,8 +1,10 @@
-import "./App.css";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AddressPage from "./pages/AddressPage";
 import { Navbar } from "./components/components";
 import { MyProvider } from "./hooks/context";
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import "./App.css";
 
 const queryClient = new QueryClient();
 
