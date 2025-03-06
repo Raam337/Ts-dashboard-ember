@@ -4,7 +4,9 @@ import AppContext from "@/hooks/context";
 import { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Address } from "shared-types";
+import Skeleton from 'react-loading-skeleton'
 
+import 'react-loading-skeleton/dist/skeleton.css'
 import "./AddressList.css";
 
 export default function AddressList() {
@@ -20,12 +22,14 @@ export default function AddressList() {
   }
 
   // Loading
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return ( <Skeleton count={15} height={60} /> )
 
+  if (!error && data.length === 0) return "No results"
+  
   // Error
-  if (error instanceof Error)
+  if (error instanceof Error){
     return <div>An error occurred: {error.message}</div>;
-
+  }
   // Data
   return (
     <ul className="flex flex-col gap-2 p-2">
