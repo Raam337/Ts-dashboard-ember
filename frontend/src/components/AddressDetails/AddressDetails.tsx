@@ -37,7 +37,14 @@ export default function AddressDetails() {
   });
 
   // No selection
-  if(!addressData || !activeAddress) return "Select entry"
+  if(!addressData || !activeAddress) return (
+    <div className="
+      flex items-center justify-center
+      h-full font-bold
+      border-2 border-dashed border-gray-300 rounded-lg">
+      <span>Select entry</span>
+    </div>
+  )
 
   // Selection
   return (
