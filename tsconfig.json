@@ -19,6 +19,12 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true,
+    "types": ["vitest"],
+    "paths": {
+      "@/*": ["./src/*"], 
+      "@frontend/*": ["./frontend/src/*"], 
+      "@backend/*": ["./backend/src/*"] 
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "backend", "frontend"],
   "exclude": ["node_modules"]

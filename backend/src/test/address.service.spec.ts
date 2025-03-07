@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AddressService } from '../src/address/address.service';
+import { AddressService } from '../address/address.service';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('AddressService', () => {
   let service: AddressService;

@@ -1,9 +1,15 @@
 ## Development setup
 
-- Generate types for Prisma database client: `pnpm prisma generate`
-- Run database creation: `pnpm prisma migrate dev`
-- Seed some test data: `pnpm prisma db seed`
+- Start by `pnpm install`
+- From the root folder, initialise database: `pnpm initDb`
 
 ## Starting
 
-Run the backend server: `pnpm be`
+Launch Frontend and Backend in Dev mode: `pnpm run:dev`
+
+ Seed new test data if required: `pnpm prisma db seed`
+
+
+## Testing
+
+ Switch to `/backend` or `/frontend` folder and run `pnpm vitest run` to run tests.

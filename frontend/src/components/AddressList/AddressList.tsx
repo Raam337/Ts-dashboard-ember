@@ -12,7 +12,7 @@ import "./AddressList.css";
 export default function AddressList() {
   const { isLoading, error, data } = useQuery({
     queryKey: ["addressList"],
-    queryFn: fetchAddresses,
+    queryFn: fetchAddresses
   });
 
   const { activeAddress, setActiveAddress } = useContext(AppContext)
@@ -22,7 +22,7 @@ export default function AddressList() {
   }
 
   // Loading
-  if (isLoading) return ( <Skeleton count={15} height={60} /> )
+  if (isLoading) return ( <Skeleton count={15} height={60} containerTestId="skeleton" /> )
 
   if (!error && data.length === 0) return "No results"
   
