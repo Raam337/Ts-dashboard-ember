@@ -9,7 +9,7 @@
   "scripts": {
     "be": "node --experimental-strip-types --watch src/server.ts",
     "initDb": "pnpm prisma generate && pnpm prisma migrate dev && pnpm prisma db seed",
-    "run:dev": "concurrently \"pnpm --filter frontend dev\" \"pnpm --filter backend start\"",
+    "run:dev": "concurrently \"pnpm --filter frontend dev\" \"pnpm --filter backend start\""
   },
   "workspaces": [
     "frontend",
